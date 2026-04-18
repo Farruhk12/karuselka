@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каруселька — ИИ-генератор карусели для Instagram</title>
+    <link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <meta name="theme-color" content="#0F2044"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-title" content="Каруселька"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        --color-background-primary: #ffffff;
+        --color-background-secondary: #F1F5F9;
+        --color-background-page: #F8FAFC;
+        --color-text-primary: #0F2044;
+        --color-text-secondary: #64748B;
+        --color-text-danger: #E11D48;
+        --color-border-tertiary: #E2E8F0;
+        --color-border-secondary: #CBD5E1;
+        --color-card-bg: #ffffff;
+        --color-card-shadow: rgba(15,32,68,0.06);
+        --color-input-bg: #F8FAFC;
+        --color-section-bg: #F8FAFC;
+        --color-accent-glow: rgba(225,29,72,0.35);
+      }
+      [data-theme="dark"] {
+        --color-background-primary: #172236;
+        --color-background-secondary: #111d2e;
+        --color-background-page: #0c1624;
+        --color-text-primary: #e8eef5;
+        --color-text-secondary: #8aafc8;
+        --color-text-danger: #f87171;
+        --color-border-tertiary: rgba(255,255,255,0.08);
+        --color-border-secondary: rgba(255,255,255,0.12);
+        --color-card-bg: #172236;
+        --color-card-shadow: rgba(0,0,0,0.3);
+        --color-input-bg: #0f1a2b;
+        --color-section-bg: #111d2e;
+        --color-accent-glow: rgba(37,99,235,0.42);
+      }
+      body {
+        font-family: var(--font-sans);
+        background: var(--color-background-page);
+        color: var(--color-text-primary);
+        min-height: 100vh;
+        transition: background .3s, color .3s;
+      }
+      #root { width: 100%; }
+      ::selection { background: rgba(37,99,235,0.18); color: #0F2044; }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(100,116,139,0.3); border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(100,116,139,0.5); }
+      @keyframes spin { to { transform: rotate(360deg) } }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

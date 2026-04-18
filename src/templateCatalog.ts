@@ -1,0 +1,33 @@
+/** Слайдовые шаблоны (этап «Шаблон») — единый список для UI и API. */
+export const LAYOUTS: { id: string; label: string }[] = [
+  { id: "bold_center", label: "Центр" },
+  { id: "left_number", label: "Номер" },
+  { id: "editorial", label: "Редакция" },
+  { id: "quote", label: "Цитата" },
+  { id: "split_photo", label: "Сплит" },
+  { id: "photo", label: "Фото" },
+  { id: "magazine", label: "Журнал" },
+  { id: "bold_number", label: "Жирный №" },
+  { id: "card_stack", label: "Карточка" },
+  { id: "diagonal", label: "Диагональ" },
+  { id: "neon_glow", label: "Неон" },
+  { id: "glass_card", label: "Стекло" },
+  { id: "radial_burst", label: "Импульс" },
+  { id: "spotlight", label: "Спотлайт" },
+  { id: "timeline_flow", label: "Таймлайн" },
+  { id: "story_flow", label: "Story" },
+  { id: "before_after", label: "До/После" },
+  { id: "doc_story", label: "Доктор" },
+  { id: "doc_quote", label: "Док-мысль" },
+  { id: "doc_ending", label: "Док-финал" },
+  { id: "checklist", label: "Чек-лист" },
+  { id: "big_quote_mark", label: "Цитата XL" },
+  { id: "polaroid", label: "Поляроид" },
+  { id: "ticket_stub", label: "Билет" },
+  { id: "notebook_page", label: "Тетрадь" },
+  { id: "receipt", label: "Чек" },
+  { id: "terminal_code", label: "Терминал" },
+  { id: "cta_save", label: "🔖 Сохрани" },
+];
+
+export const ALL_SLIDE_LAYOUT_IDS: string[] = LAYOUTS.map((l) => l.id);

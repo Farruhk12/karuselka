@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Comic CAT";
+  src: url("/fonts/Comic_CAT.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

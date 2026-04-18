@@ -1,0 +1,11 @@
+.vercel
+.env
+.env.local
+node_modules
+dist
+
+.claude
+*.log
+.codex*
+carousel_generator.tsx.tmp.*
+*.tmp
