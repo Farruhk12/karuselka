@@ -2,7 +2,7 @@
   "name": "Каруселька",
   "short_name": "Каруселька",
   "description": "ИИ-генератор карусели для Instagram",
-  "start_url": "/#app",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#EAE6DC",
   "theme_color": "#0F2044",

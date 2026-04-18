@@ -2,7 +2,7 @@
   "name": "carousel-generator",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://karuselka.vercel.app/#app",
+  "homepage": "https://karuselka.vercel.app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
