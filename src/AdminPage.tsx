@@ -143,6 +143,7 @@ export default function AdminPage({ onBack }: { onBack: () => void }) {
   const [contentAccess, setContentAccess] = useState<ContentAccessPayload | null>(null);
   const [contentLoading, setContentLoading] = useState(false);
   const [contentSaving, setContentSaving] = useState(false);
+  const [contentSaveNotice, setContentSaveNotice] = useState<string | null>(null);
 
   // Build auth headers: token for admin users, X-Admin-Key for secret key
   const headers = useCallback(
@@ -287,8 +288,11 @@ export default function AdminPage({ onBack }: { onBack: () => void }) {
       const data = await r.json();
       if (!r.ok) throw new Error(data.error || "Не удалось сохранить");
       setContentAccess(normalizeContentAccess(data));
+      setContentSaveNotice("Сохранено на сервере (база Redis / Vercel KV).");
+      window.setTimeout(() => setContentSaveNotice(null), 5000);
     } catch (e: any) {
       setError(e.message);
+      setContentSaveNotice(null);
     }
     setContentSaving(false);
   }
@@ -459,9 +463,18 @@ export default function AdminPage({ onBack }: { onBack: () => void }) {
               <div style={{ fontSize: 13, color: "#64748B", marginTop: 4, maxWidth: 620 }}>
                 Обложки, шаблоны слайдов, шрифты, размеры и цветовые темы. Учётные записи с флагом администратора всегда видят полный список в редакторе.
               </div>
+              <div style={{ fontSize: 12, color: "#0F2044", marginTop: 10, padding: "10px 12px", background: "rgba(37,99,235,0.06)", borderRadius: 8, border: "1px solid rgba(37,99,235,0.15)", maxWidth: 620, lineHeight: 1.45 }}>
+                <strong>Куда пишется:</strong> на сервере Vercel в хранилище <strong>Redis (KV)</strong>, ключ конфигурации. Без кнопки «Сохранить…» внизу изменения остаются только у вас в браузере.
+              </div>
             </div>
-            <button type="button" style={{ ...btnSecondary, fontSize: 12 }} onClick={fetchContentAccess} disabled={contentLoading}>
-              {contentLoading ? "…" : "Обновить"}
+            <button
+              type="button"
+              title="Подтянуть актуальные настройки с сервера. Несохранённые правки в списках будут сброшены."
+              style={{ ...btnSecondary, fontSize: 12 }}
+              onClick={fetchContentAccess}
+              disabled={contentLoading}
+            >
+              {contentLoading ? "…" : "Загрузить с сервера"}
             </button>
           </div>
 
@@ -553,12 +566,17 @@ export default function AdminPage({ onBack }: { onBack: () => void }) {
 
               <button
                 type="button"
-                style={{ ...btnPrimary, marginTop: 8 }}
+                style={{ ...btnPrimary, marginTop: 12 }}
                 onClick={saveContentAccessCfg}
                 disabled={contentSaving}
               >
                 {contentSaving ? "Сохранение…" : "Сохранить доступ к контенту"}
               </button>
+              {contentSaveNotice && (
+                <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 8, background: "rgba(22,163,74,0.08)", border: "1px solid rgba(22,163,74,0.25)", color: "#166534", fontSize: 13, fontWeight: 600 }}>
+                  {contentSaveNotice}
+                </div>
+              )}
             </>
           )}
         </div>
